@@ -41,14 +41,17 @@ const contactsSlice = createSlice({
   extraReducers: builder =>
     builder
       .addCase(fetchContacts.pending, handlePending)
-      .addCase(addContact.pending, handlePending)
-      .addCase(deleteContact.pending, handlePending)
-      .addCase(fetchContacts.rejected, handleRejected)
-      .addCase(addContact.rejected, handleRejected)
-      .addCase(deleteContact.rejected, handleRejected)
       .addCase(fetchContacts.fulfilled, handleFetchContactsFullfilled)
+      .addCase(fetchContacts.rejected, handleRejected)
+      .addCase(addContact.pending, handlePending)
       .addCase(addContact.fulfilled, handleAddContactFullfilled)
-      .addCase(deleteContact.fulfilled, handleDeleteContactFullfilled),
+      .addCase(addContact.rejected, handleRejected)
+      .addCase(deleteContact.pending, handlePending)
+      .addCase(deleteContact.fulfilled, handleDeleteContactFullfilled)
+      .addCase(deleteContact.rejected, handleRejected),
 });
 
 export const contactsReducer = contactsSlice.reducer;
+
+// export const { fetchingInProgress, fetchingSuccess, fetchingError } =
+//   contactsSlice.actions;

@@ -2,9 +2,10 @@ import css from './Form.module.css';
 import { nanoid } from 'nanoid';
 import { useDispatch, useSelector } from 'react-redux';
 import { addContact } from 'redux/fetching';
+import { selectContacts } from 'redux/selectors';
 
 const Form = () => {
-  const contacts = useSelector(state => state.contacts.contacts);
+  const contacts = useSelector(selectContacts);
   const dispatch = useDispatch();
 
   const handleAdd = e => {
